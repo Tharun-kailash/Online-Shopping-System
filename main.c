@@ -14,8 +14,6 @@ int no_of_products=0;
 #include "customer.c"
 #include "p-queue.c"
 #include "interface.c"
-
-
 int admin_login()
 {
 	char name[20];
@@ -50,9 +48,7 @@ int admin_login()
 		system("pause");
 		admin_login();
 	}
-
 }
-
 void admin_menu()
 {
 	int ch;
@@ -61,25 +57,22 @@ void admin_menu()
 	do 
 	{	
 		clear();
-		
 		printf("\n\t\t============================================");
 		printf("\n\t\t                Admin Portal              ");
 		printf("\n\t\t============================================");
-	
-		printf("\n\t\t     Enter 1 - ADD a New product    ");
-		printf("\n\t\t     Enter 2 - DISPLAY all Products   ");
-		printf("\n\t\t     Enter 3 - MODIFY Existing Product");
-		printf("\n\t\t     Enter 4 - Delete a Particular Product Item");
-		printf("\n\t\t     Enter 5 - Display Payment History");
-		printf("\n\t\t     Enter 6 - Display all Customer");
-		printf("\n\t\t     Enter 7 - Delete a Particular Customer Item");
-		printf("\n\t\t     Enter 8 - Display Queue");
-		printf("\n\t\t     Enter 9 - Ship the Order(Highest Priority)");
-		printf("\n\t\t     Enter 10- Display Customer Feedbacks");
-		printf("\n\t\t     Enter 0 - Back");
+		printf("\n\t\t      1 - ADD a New product    ");
+		printf("\n\t\t      2 - DISPLAY all Products   ");
+		printf("\n\t\t      3 - MODIFY Existing Product");
+		printf("\n\t\t      4 - Delete a Particular Product Item");
+		printf("\n\t\t      5 - Display Payment History");
+		printf("\n\t\t      6 - Display all Customer");
+		printf("\n\t\t      7 - Delete a Particular Customer Item");
+		printf("\n\t\t      8 - Display Queue");
+		printf("\n\t\t      9 - Ship the Order(Highest Priority)");
+		printf("\n\t\t      10- Display Customer Feedbacks");
+		printf("\n\t\t      0 - Back");
 		printf("\n\nEnter Your choice >>>");
 		scanf("%d",&ch);
-		
 		switch(ch)
 		{
 			case 1:
@@ -90,8 +83,8 @@ void admin_menu()
 				break;
 			case 2:
 				clear();
-    			display_product();
-    			break;
+				display_product();
+				break;
 			case 3:
 				clear();
 				modify_product();
@@ -134,7 +127,6 @@ void admin_menu()
 		
 	}while(1);
 }
-
 void customer_menu(struct customer* ptr)
 {
     int ch;
@@ -154,9 +146,8 @@ void customer_menu(struct customer* ptr)
 		printf("\n\t\t     Enter 4 - Delete My Profile");
 		printf("\n\t\t     Enter 5 - Give Feedback/Review");
 		printf("\n\t\t     Enter 0 - Log Out");
-		printf("\n\nEnter Your choice >>>");
+		printf("\n\nEnter Your choice : ");
 		scanf("%d",&ch);
-		
 		switch(ch)
 		{
 			case 1:
@@ -220,7 +211,6 @@ void customer_menu(struct customer* ptr)
 // 	}
 		
 // }
-
 void menu()
 {
 	int ch;
@@ -235,7 +225,6 @@ void menu()
 		printf("\n\t\t     Enter 0 - Back");
 		printf("\nEnter your Choice: ");
 		scanf("%d", &ch);
-
 		switch(ch)
 		{
 			case 1:
@@ -252,16 +241,15 @@ void menu()
 	system("pause");
 	}
 }
-
 void main()
 {
     readfromfile();
     cus_readfromfile();
-	queue_readfromfile();
-	readfeedback();
+    queue_readfromfile();
+    readfeedback();
     menu();
     writeinfile();
     cus_writeinfile();
-	queue_writeinfile();
-	write_feedback(root);
+    queue_writeinfile();
+    write_feedback(root);
 }
